@@ -1,5 +1,7 @@
 {
   "name": "HeroApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
