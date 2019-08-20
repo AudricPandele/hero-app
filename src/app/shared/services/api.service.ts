@@ -26,4 +26,8 @@ export class ApiService {
   getHero(id) {
     return this.httpClient.get<Hero>(this.url + id);
   }
+
+  postSearch(search) {
+    return this.httpClient.post<Hero[]>(this.url, search);
+  }
 }

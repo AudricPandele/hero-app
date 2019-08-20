@@ -19,4 +19,12 @@ export class Tab1Page implements OnInit {
       this.heros = res;
     });
   }
+
+  inputSearch(event) {
+    this.apiService
+      .postSearch({ search: event.target.value })
+      .subscribe(res => {
+        this.heros = res;
+      });
+  }
 }

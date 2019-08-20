@@ -1,7 +1,7 @@
 export class HeroBiography {
   public fullName: string;
   public alterEgos: string;
-  public aliases: [string];
+  public aliases: string;
   public placeOfBirth: string;
   public firstAppearance: string;
   public publisher: string;
@@ -10,7 +10,7 @@ export class HeroBiography {
   constructor(
     fullName: string,
     alterEgos: string,
-    aliases: [string],
+    aliases: string,
     placeOfBirth: string,
     firstAppearance: string,
     publisher: string,
