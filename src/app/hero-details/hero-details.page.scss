@@ -2,14 +2,8 @@
   perspective: 1000px;
 }
 /* flip the pane when hovered */
-.flip-container:hover .flipper,
 .flip-container.hover .flipper {
   transform: rotateY(180deg);
-}
-
-.flip-container,
-.front,
-.back {
 }
 
 /* flip speed goes here */
@@ -23,8 +17,14 @@
 /* hide back of pane during swap */
 .front,
 .back {
+  img {
+    border-radius: 3px 0;
+    max-height: 280px;
+    object-fit: cover;
+  }
+  height: 380px;
   backface-visibility: hidden;
-
+  min-width: 90%;
   position: absolute;
   top: 0;
   left: 0;
@@ -40,12 +40,4 @@
 /* back, initially hidden pane */
 .back {
   transform: rotateY(180deg);
-}
-
-.transparent {
-  opacity: 0.7;
-  position: absolute;
-  bottom: 0;
-  background: white;
-  width: 100%;
 }

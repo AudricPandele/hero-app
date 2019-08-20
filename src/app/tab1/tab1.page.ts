@@ -15,7 +15,7 @@ export class Tab1Page implements OnInit {
   constructor(private apiService: ApiService, private navCtrl: NavController) {}
 
   ngOnInit(): void {
-    this.apiService.getHeros().subscribe(res => {
+    this.apiService.getHerosForHome().subscribe(res => {
       this.heros = res;
     });
   }

@@ -1,0 +1,58 @@
+<ion-grid class="no-padding">
+  <ion-row>
+    <ion-col>
+      <h3>intelligence</h3>
+      <ion-progress-bar
+        color="tertiary"
+        class="progress-bar"
+        value="{{ powerstats?.intelligence / 100 }}"
+      ></ion-progress-bar>
+    </ion-col>
+    <ion-col>
+      <h3>durability</h3>
+      <ion-progress-bar
+        color="tertiary"
+        class="progress-bar"
+        value="{{ powerstats?.durability / 100 }}"
+      ></ion-progress-bar>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <h3>strength</h3>
+      <ion-progress-bar
+        color="tertiary"
+        class="progress-bar"
+        value="{{ powerstats?.strength / 100 }}"
+      ></ion-progress-bar>
+    </ion-col>
+    <ion-col>
+      <h3>power</h3>
+      <ion-progress-bar
+        color="tertiary"
+        class="progress-bar"
+        value="{{ powerstats?.power / 100 }}"
+      ></ion-progress-bar>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <h3>speed</h3>
+      <ion-progress-bar
+        color="tertiary"
+        class="progress-bar"
+        value="{{ powerstats?.speed / 100 }}"
+      ></ion-progress-bar>
+    </ion-col>
+    <ion-col>
+      <h3>combat</h3>
+      <ion-progress-bar
+        color="tertiary"
+        class="progress-bar"
+        value="{{ powerstats?.combat / 100 }}"
+      ></ion-progress-bar>
+    </ion-col>
+  </ion-row>
+</ion-grid>
