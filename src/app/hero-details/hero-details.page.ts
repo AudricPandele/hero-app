@@ -11,11 +11,17 @@ import { Hero } from '../models/hero';
 export class HeroDetailsPage implements OnInit {
   hero: Hero;
   color = 'grey';
+  flipCard = false;
+
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.apiService.getHero(this.route.snapshot.params.id).subscribe(res => {
       this.hero = res;
     });
+  }
+
+  handleFlip() {
+    this.flipCard = !this.flipCard;
   }
 }
