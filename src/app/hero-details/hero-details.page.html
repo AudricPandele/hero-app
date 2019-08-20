@@ -8,31 +8,27 @@
 </ion-header>
 
 <ion-content>
-  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+  <div
+    (click)="handleFlip()"
+    class="flip-container"
+    [ngClass]="{ hover: flipCard }"
+  >
     <div class="flipper">
-      <ion-card
-        class="front"
-        style="border: 10px solid"
-        [ngStyle]="{ 'border-color': hero?.color }"
-      >
-        <img [src]="hero?.images.lg" />
-        <ion-card-header class="transparent">
+      <ion-card class="front" [ngClass]="hero?.color">
+        <img [src]="hero?.images" />
+        <ion-card-header>
           <ion-card-subtitle>{{ hero?.biography.publisher }}</ion-card-subtitle>
           <ion-card-title>{{ hero?.name }}</ion-card-title>
         </ion-card-header>
       </ion-card>
 
-      <ion-card
-        class="back"
-        style="border: 10px solid"
-        [ngStyle]="{ 'border-color': hero?.color }"
-      >
+      <ion-card class="back" [ngClass]="hero?.color">
         <ion-card-header>
-          <ion-card-subtitle>{{ hero?.biography.publisher }}</ion-card-subtitle>
+          <ion-card-subtitle>{{ hero?.biography.fullName }}</ion-card-subtitle>
           <ion-card-title>{{ hero?.name }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          {{ hero?.connections.groupAffiliation }}
+          <app-powerstats [powerstats]="hero?.powerstats"></app-powerstats>
         </ion-card-content>
       </ion-card>
     </div>

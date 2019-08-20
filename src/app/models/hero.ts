@@ -12,7 +12,7 @@ export class Hero {
   public apparence: HeroApparence;
   public work: HeroWork;
   public connections: HeroConnections;
-  public images: [string];
+  public images: string;
   public rarity: number;
   public color: string;
 
@@ -24,7 +24,7 @@ export class Hero {
     apparence: HeroApparence,
     work: HeroWork,
     connections: HeroConnections,
-    images: [string],
+    images: string,
     rarity: number,
     color: string
   ) {

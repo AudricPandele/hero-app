@@ -19,7 +19,15 @@ export class ApiService {
     return this.httpClient.get<Hero[]>(this.url);
   }
 
+  getHerosForHome() {
+    return this.httpClient.get<Hero[]>(this.url + 'home');
+  }
+
   getHero(id) {
     return this.httpClient.get<Hero>(this.url + id);
+  }
+
+  postSearch(search) {
+    return this.httpClient.post<Hero[]>(this.url, search);
   }
 }
