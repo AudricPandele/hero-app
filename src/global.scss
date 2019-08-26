@@ -25,6 +25,30 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
+ion-app {
+  background-color: #44b09e;
+  background-image: linear-gradient(215deg, #44b09e 0%, #e0d2c7 74%);
+}
+
+ion-header {
+  opacity: 0.5;
+}
+
+ion-title {
+  color: #1d4b43;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.btn-link {
+  background: none;
+  text-decoration: underline;
+}
+
 .no-padding {
   padding: 0;
 }

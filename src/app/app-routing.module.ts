@@ -9,7 +9,8 @@ const routes: Routes = [
   {
     path: 'hero-details',
     loadChildren: './hero-details/hero-details.module#HeroDetailsPageModule'
-  }
+  },
+  { path: 'account', loadChildren: './tab3/account/account.module#AccountPageModule' }
 ];
 @NgModule({
   imports: [

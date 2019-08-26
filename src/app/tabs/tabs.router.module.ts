@@ -42,6 +42,13 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+          },
+          {
+            path: 'account',
+            loadChildren: () =>
+              import('../tab3/account/account.module').then(
+                m => m.AccountPageModule
+              )
           }
         ]
       },
