@@ -1,9 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>account</ion-title>
+    <ion-buttons slot="end">
+      {{ user?.heroPoints }}
+    </ion-buttons>
+    <ion-title>{{ user?.name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <h3>Get more Heros</h3>
+  <ion-button expand="block">Get a random Hero !</ion-button>
+  <h3>My Heros</h3>
+  <ion-list lines="none">
+    <ion-item
+      [routerLink]="['heros/', { id: hero?.id }]"
+      routerDirection="forward"
+      routerLinkActive="router-link-active"
+      *ngFor="let hero of user?.heros"
+    >
+      <ion-avatar slot="start">
+        <img [src]="hero?.images" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ hero?.name }}</h2>
+        <h3>{{ hero?.biography?.fullName }}</h3>
+        <p>{{ hero?.biography?.publisher }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

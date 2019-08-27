@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from '../shared/services/auth-service.service';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -8,7 +8,7 @@ import { AlertController } from '@ionic/angular';
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page {
+export class Tab3Page implements OnInit {
   formErrors = '';
   formHasErrors = false;
   toggleLogin = true;
@@ -18,6 +18,12 @@ export class Tab3Page {
     private router: Router,
     private alertController: AlertController
   ) {}
+
+  ngOnInit() {
+    if (localStorage.getItem('user_id') !== null) {
+      this.router.navigate(['tabs/tab3/account']);
+    }
+  }
 
   register(form) {
     if (form.value.password === form.value.confirm) {
@@ -29,8 +35,18 @@ export class Tab3Page {
               email: form.value.email,
               password: form.value.password
             })
-            .subscribe(resp => console.log(resp));
-          this.router.navigateByUrl('account');
+            .subscribe(
+              resp => {
+                localStorage.setItem('user_id', resp.user.id);
+                const navigationExtra: NavigationExtras = {
+                  state: {
+                    user: resp.user
+                  }
+                };
+                this.router.navigate(['tabs/tab3/account'], navigationExtra);
+              },
+              err => this.presentAlert(err.message)
+            );
         },
         err => this.presentAlert(err.message)
       );
@@ -44,7 +60,13 @@ export class Tab3Page {
   login(form) {
     this.authService.login(form.value).subscribe(
       res => {
-        this.router.navigateByUrl('account');
+        localStorage.setItem('user_id', res.user.id);
+        const navigationExtra: NavigationExtras = {
+          state: {
+            user: res.user
+          }
+        };
+        this.router.navigate(['tabs/tab3/account'], navigationExtra);
       },
       err => this.presentAlert(err.message)
     );
